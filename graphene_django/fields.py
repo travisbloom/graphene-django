@@ -44,7 +44,7 @@ class DjangoConnectionField(ConnectionField):
 
     @staticmethod
     def connection_resolver(resolver, connection, default_manager, root, args, context, info):
-        iterable = resolver(root, args, context, info)
+        iterable = resolver(root, args, context, info, default_manager)
         if iterable is None:
             iterable = default_manager
         iterable = maybe_queryset(iterable)
